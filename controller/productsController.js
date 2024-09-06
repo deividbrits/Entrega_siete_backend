@@ -28,7 +28,7 @@ exports.getAllManga = async (req,res) => {
     res.json({manga})
    } catch (error) {
     res.status(500).json ({
-        msj: 'error al obtener cafes',
+        msj: 'error al obtener mangas',
         error
     })
 }
