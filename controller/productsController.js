@@ -4,7 +4,8 @@ const mongoose = require('mongoose');
 
 exports.addManga = async (req, res) => {
     const {nombre , autor, editorial,foto, precio} = req.body;
-    try { const newManga = await Manga.create({
+    try { 
+        const newManga = await Manga.create({
         nombre,
         autor,
         editorial,
@@ -38,7 +39,7 @@ exports.getMangaById = async (req,res) => {
  try {
     const mangaID =req.params.id;
     console.log(mangaID)
-    const manga = await Manga.findById(cafeID)
+    const manga = await Manga.findById(mangaID)
     if (manga) {
     res.json(manga)
     console.log(manga)
@@ -55,9 +56,10 @@ exports.getMangaById = async (req,res) => {
 };
 
 exports.updateMangaById = async (req,res) => {
-    const {id,nombre, autor,editorial,precio} = req.body;
+    const {nombre, autor,editorial,foto,precio} = req.body;
+    const mangaID = req.params.id;
     try {
-        const actualizarManga = await Manga.findByIdAndUpdate (id,{nombre,autor,editorial,precio})
+        const actualizarManga = await Manga.findByIdAndUpdate (mangaID,{nombre,autor,editorial,foto,precio})
         res.json(actualizarManga)
     } catch(error) {
         res.status(500).json({
@@ -70,10 +72,10 @@ exports.updateMangaById = async (req,res) => {
 
 exports.deleteMangaById = async (req,res) => {
      try {
-        const MangaID = req.params.id;
-        const borrarManga = await Manga.findByIdAndDelete (cafeID)
-        if(borrarCafe) {
-        res.json(borrarCafe)
+        const mangaID = req.params.id;
+        const borrarManga = await Manga.findByIdAndDelete (mangaID)
+        if(borrarManga) {
+        res.json(borrarManga)
     }else {
         res.status(404).json ({msj: 'Manga no encontrado'})
     }
