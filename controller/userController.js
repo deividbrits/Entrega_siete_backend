@@ -19,6 +19,18 @@ exports.userRegister = async (req, res) => {
 			password: hashedPassword,
             
         })
+        const payload = { user: { id: respuestaDB._id } }
+        jwt.sign(
+            payload, 
+            process.env.SECRET,
+            {
+                expiresIn: 3600000 
+            }, 
+            (error, token) => {
+                if(error) throw error;
+            
+                res.json({token})
+	    })
 		// usuario creado
 		return res.json(respuestaDB)
 	} catch (error) {
