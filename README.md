@@ -21,11 +21,11 @@ Para correr este proyecto necesitaras las siguientes variables de entorno en .en
 
 PORT=3000
 
-MONGODB_URI=mongodb+srv://deividbrits:090797.@mangas.edzkv.mongodb.net/ 
+MONGODB_URI= puede conectarla a su base de datos de Mongo DB 
 
-* esta variable debe usarse exclusivamente para fines de educación, ya que se encuentra una base de datos con los mangas disponibles para ser visualizados en el frontend. 
 
-SECRET= <cualquiera>
+
+SECRET= < cualquiera >
 
 
 ## API Reference
